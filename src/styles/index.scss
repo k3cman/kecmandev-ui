@@ -1,6 +1,81 @@
-$body-color: slateblue;
+@import "./shared";
+@import "./mixins/spacing";
+@import "./utility";
+
+@include generate(m, margin);
+@include generate(ml, margin-left);
+@include generate(mr, margin-right);
+@include generate(mt, margin-top);
+@include generate(mb, margin-bottom);
+
+@include generate(p, padding);
+@include generate(pl, padding-left);
+@include generate(pr, padding-right);
+@include generate(pt, padding-top);
+@include generate(pb, padding-bottom);
 
 body {
-  color: $body-color;
-  font-family: sans-serif;
+  font-family: "Inconsolata", "Montserrat", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: $default-font-size;
+}
+
+.navbar {
+  height: 50px;
+  width: 100%;
+  border-bottom: 0.5px solid $neutral-gray;
+  display: flex;
+  align-items: flex-end;
+  .container {
+    display: flex;
+    align-items: flex-end;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  .links {
+    font-size: $default-font-size;
+    ul {
+      display: flex;
+      list-style: none;
+      li {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.card {
+  background-color: $background-gray;
+  padding: 20px;
+  border-left: 6px solid $orange-main;
+  margin-bottom: 18px;
+  &-title {
+    font-size: $title-font-size;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  &-content {
+    color: $text-gray;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  &-button {
+    background-color: $orange-main;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.container {
+  h1 {
+    font-size: 20px;
+  }
 }

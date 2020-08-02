@@ -1,0 +1,17 @@
+@mixin generate($prefix, $property) {
+  $sizes: [0, 0.25, 0.5, 1, 1.5, 3];
+  $spacing: 1rem;
+
+  @for $i from 1 through length($sizes) {
+    // Get the size for the current index
+    $size: nth($sizes, $i);
+
+    // Create the rule
+    .#{$prefix}-#{$i - 1} {
+      #{$property}: $spacing * $size;
+    }
+  }
+  .#{$prefix}-auto {
+    #{$property}: auto;
+  }
+}
